@@ -1,0 +1,4 @@
+DJANGO_SECRET_KEY=d@!j#7#7dj!db!)qmk7+_(&07(%n1ihu_xlvfh(5j21ok(9n5y
+DEBUG=True
+APP_DATABASE_URL=mysql://root:@localhost:3306/pustak_base
+

@@ -17,19 +17,17 @@ from decouple import config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('DJANGO_SECRET_KEY')
-
+SECRET_KEY = 'd@!j#7#7dj!db!)qmk7+_(&07(%n1ihu_xlvfh(5j21ok(9n5y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+# DEBUG = config('DEBUG', cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -51,6 +49,7 @@ LIBS = (
 
 APPS = (
     'backend.accounts',
+    'backend.inventory',
 
 )
 
@@ -87,7 +86,6 @@ TEMPLATES = [
     },
 ]
 
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
@@ -104,10 +102,21 @@ APPEND_SLASH = True
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.parse(config('APP_DATABASE_URL'))
-}
+# DATABASES = {
+#     'default': dj_database_url.parse(config('APP_DATABASE_URL'))
+# }
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pustk_db',
+        'USER': 'root',
+        'PASSWORD': 'Niswa@123',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -141,7 +150,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
