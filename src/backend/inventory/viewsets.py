@@ -6,7 +6,7 @@ from ..base.api.viewsets import ModelViewSet
 from .serializers import BookCategorySerializer, BookProductSerializer, ApprovalSerializer
 from .models import BookCategory, BookProduct, Approval
 from .filters import BookCategoryFilter, BookProductFilter, ApprovalFilter
-from .permissions import BookCategoryPermissions, BookProductPermissions, ApprovalPermissions
+from .permissions import BookCategoryPermissions, BookProductPermissions
 from rest_framework.decorators import action
 from ..base import response
 from ..base.services import create_update_record
@@ -32,7 +32,7 @@ class BookCategoryViewSet(ModelViewSet):
 class BookProductViewSet(ModelViewSet):
     serializer_class = BookProductSerializer
     queryset = BookProduct.objects.all()
-    permission_classes = (BookProductPermissions, ApprovalPermissions,)
+    permission_classes = (BookProductPermissions,)
     parser_classes = (JSONParser, MultiPartParser)
     pagination_class = StandardResultsSetPagination
     filter_backends = (DjangoFilterBackend,)
@@ -53,7 +53,6 @@ class BookProductViewSet(ModelViewSet):
             queryset = self.filter_queryset(queryset)
             page = self.paginate_queryset(queryset)
             if page is not None:
-                print("hi==>", self.get_paginated_response(page).data)
                 return response.Ok(self.get_paginated_response(page).data)
             return response.Ok(ApprovalSerializer(queryset, many=True).data)
         else:

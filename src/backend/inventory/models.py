@@ -17,12 +17,12 @@ class BookProduct(TimeStampedModel):
     slug = models.CharField(max_length=1024, blank=True, null=True)
     owner = models.ForeignKey(get_user_model(), related_name='book_owner', blank=True, null=True,
                               on_delete=models.PROTECT)
-    book_category = models.ForeignKey(BookCategory, blank=True, null=True, on_delete=models.PROTECT),
-    # publisher 
-    # publication_year=models.DateField(blank=True, null=True),
-    # author_name=models.CharField(blank=True, null=True),
-    # language=models.CharField(blank=True, null=True),
-    # book_type new book /use book
+    book_category = models.ForeignKey(BookCategory, blank=True, null=True, on_delete=models.PROTECT)
+    publisher =models.CharField(max_length=1024,blank=True, null=True)
+    publication_year=models.DateField(blank=True, null=True)
+    author_name=models.CharField(max_length=1024,blank=True, null=True)
+    # language=models.CharField(blank=True, null=True)
+    book_type =models.TextField(blank=True, null=True)
     desc = models.TextField(blank=True, null=True)
     short_desc = models.CharField(max_length=1024, blank=True, null=True)
     image = models.CharField(max_length=1024, blank=True, null=True)
