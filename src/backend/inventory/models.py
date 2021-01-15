@@ -2,8 +2,7 @@ from django.db import models
 
 from ..base.models import TimeStampedModel
 from django.contrib.auth import get_user_model
-
-
+from ..backend_settings.models import Settings
 class BookCategory(TimeStampedModel):
     name = models.CharField(max_length=1024, blank=True, null=True)
     slug = models.CharField(max_length=1024, blank=True, null=True)
@@ -17,11 +16,11 @@ class BookProduct(TimeStampedModel):
     slug = models.CharField(max_length=1024, blank=True, null=True)
     owner = models.ForeignKey(get_user_model(), related_name='book_owner', blank=True, null=True,
                               on_delete=models.PROTECT)
-    book_category = models.ForeignKey(BookCategory, blank=True, null=True, on_delete=models.PROTECT)
+    book_categories = models.ForeignKey(Settings, related_name='book_category', blank=True, null=True, on_delete=models.PROTECT)
     publisher =models.CharField(max_length=1024,blank=True, null=True)
     publication_year=models.DateField(blank=True, null=True)
     author_name=models.CharField(max_length=1024,blank=True, null=True)
-    # language=models.CharField(blank=True, null=True)
+    lang= models.ForeignKey(Settings, related_name='language', blank=True, null=True, on_delete=models.PROTECT)
     book_type =models.TextField(blank=True, null=True)
     desc = models.TextField(blank=True, null=True)
     short_desc = models.CharField(max_length=1024, blank=True, null=True)

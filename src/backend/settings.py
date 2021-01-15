@@ -50,6 +50,7 @@ LIBS = (
 APPS = (
     'backend.accounts',
     'backend.inventory',
+    'backend.backend_settings',
 
 )
 
@@ -110,7 +111,7 @@ APPEND_SLASH = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pustk_db',
+        'NAME': 'pustk',
         'USER': 'root',
         'PASSWORD': 'Niswa@123',
         'HOST': 'localhost',

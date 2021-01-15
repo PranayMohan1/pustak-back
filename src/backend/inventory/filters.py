@@ -19,7 +19,7 @@ class BookProductFilter(django_filters.FilterSet):
             'id': ['exact'],
             'name': ['exact', 'icontains'],
             'owner': ['exact'],
-            'book_category': ['exact'],
+            'book_categories': ['exact'],
             'unit_price': ['exact'],
             'unit': ['exact']
         }
