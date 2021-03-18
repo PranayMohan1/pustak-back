@@ -3,7 +3,8 @@ from ..base.api.permissions import (AllowAny, IsAuthenticated,
                                     ResourcePermission)
 
 
-class SettingsPermissions(ResourcePermission):
+
+class CartPermission(ResourcePermission):
     metadata_perms = AllowAny()
     enough_perms = AllowAny()
     global_perms = None
@@ -13,4 +14,3 @@ class SettingsPermissions(ResourcePermission):
     partial_update_perms = AllowAny()
     destroy_perms = AllowAny()
     list_perms = AllowAny()
-    dropdown_perms = AllowAny()

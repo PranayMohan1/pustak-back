@@ -51,6 +51,7 @@ APPS = (
     'backend.accounts',
     'backend.inventory',
     'backend.backend_settings',
+    'backend.cart',
 
 )
 
